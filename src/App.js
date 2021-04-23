@@ -1,5 +1,7 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import CardListComponent from "./components/card-list";
+import ServusTitleComponent from "./servus-components/title";
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
           Learn React
         </a>
       </header>
+      <CardListComponent />
+      <ServusTitleComponent />
     </div>
   );
 }
