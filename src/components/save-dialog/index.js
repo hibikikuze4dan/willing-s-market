@@ -11,7 +11,7 @@ import {
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getDataForSaving, getDialogsByFunction } from "../../redux/selectors";
-import { loadSave } from "../../redux/slice";
+import { loadSave, toggleDialog } from "../../redux/slice";
 import { handleLocalSaveClick } from "./utils";
 
 const useStyles = makeStyles((theme) => ({
@@ -82,6 +82,7 @@ const SelectSaveAndLoadComponent = ({ onClose }) => {
 
 const SaveDialogComponent = ({ onClose }) => {
   const isOpen = useSelector(getDialogsByFunction)("save");
+  const dispatch = useDispatch();
   return (
     <Dialog open={isOpen} onClose={onClose}>
       <Grid container>
@@ -90,6 +91,16 @@ const SaveDialogComponent = ({ onClose }) => {
         </Grid>
         <Grid item xs={12}>
           <SelectSaveAndLoadComponent onClose={onClose} />
+        </Grid>
+        <Grid item xs={12}>
+          <Button
+            onClick={() => {
+              dispatch(toggleDialog("save"));
+              dispatch(toggleDialog("export"));
+            }}
+          >
+            Export
+          </Button>
         </Grid>
       </Grid>
     </Dialog>

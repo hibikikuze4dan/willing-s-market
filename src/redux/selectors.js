@@ -54,3 +54,23 @@ export const getDataForSaving = createSelector(
   getWares,
   (servusi, wares) => ({ servusi, wares })
 );
+
+export const getWaresDeduped = createSelector(getWares, (wares) => {
+  return wares.reduce((allWares, ware) => {
+    const wareExistsAtIndex = allWares.findIndex(
+      (aWare) => aWare.title === ware.title
+    );
+
+    if (wareExistsAtIndex === -1) allWares.push({ ...ware, purchases: 1 });
+    else
+      allWares[wareExistsAtIndex] = {
+        ...allWares[wareExistsAtIndex],
+        purchases: allWares[wareExistsAtIndex].purchases + 1,
+      };
+    return allWares;
+  }, []);
+});
+
+export const getServusiForExport = createSelector(getServusi, (servusi) => {
+  return servusi.map(({ name, imgSrc }) => ({ title: name, imgSrc }));
+});

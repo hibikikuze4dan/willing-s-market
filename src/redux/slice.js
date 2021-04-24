@@ -9,6 +9,7 @@ export const dataSlice = createSlice({
     dialogs: {
       servusi: false,
       save: false,
+      export: false,
     },
   },
   reducers: {
@@ -64,7 +65,7 @@ export const dataSlice = createSlice({
       servusi[servusIndex] = action.payload;
       state.servusi = [...servusi];
     },
-    saveTempLink: (state, action) => {
+    saveServusTempLink: (state, action) => {
       const servusi = state.servusi;
       const servusIndex = state.servusi.findIndex(
         (servus) => servus.id === action.payload
@@ -76,6 +77,15 @@ export const dataSlice = createSlice({
       };
       servusi[servusIndex] = servus;
       state.servusi = [...servusi];
+    },
+    updateCurrentServus: (state, action) => {
+      state.currentServus = action.payload;
+    },
+    deleteServus: (state, action) => {
+      state.servusi = [
+        ...state.servusi.filter((servus) => servus.id !== action.payload),
+      ];
+      state.currentServus = "";
     },
     loadSave: (state, action) => {
       state = { ...state, ...action.payload };
@@ -90,8 +100,10 @@ export const {
   toggleDialog,
   addServus,
   updateServus,
-  saveTempLink,
+  saveServusTempLink,
   loadSave,
+  updateCurrentServus,
+  deleteServus,
 } = dataSlice.actions;
 
 export default dataSlice.reducer;

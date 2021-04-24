@@ -5,7 +5,11 @@ import {
   getCurrentServusFromServusi,
   getDialogsByFunction,
 } from "../../redux/selectors";
-import { saveTempLink, toggleDialog, updateServus } from "../../redux/slice";
+import {
+  saveServusTempLink,
+  toggleDialog,
+  updateServus,
+} from "../../redux/slice";
 
 const ModalComponent = () => {
   const dispatch = useDispatch();
@@ -33,7 +37,11 @@ const ModalComponent = () => {
             }
             helperText="Needs actual img link (ex. https://*.jpg)"
           />
-          <Button onClick={() => dispatch(saveTempLink(id))}>
+          <Button
+            onClick={() => {
+              dispatch(saveServusTempLink(id));
+            }}
+          >
             Save New Link
           </Button>
         </Grid>

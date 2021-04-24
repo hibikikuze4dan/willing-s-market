@@ -4,6 +4,7 @@ import CardListComponent from "./components/card-list";
 import ServusTitleComponent from "./servus-components/title";
 import ServusListComponent from "./servus-components/servus-list";
 import ApplicationBarComponent from "./components/app-bar";
+import ExportModalComponent from "./export-components/modal";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <CardListComponent />
       <ServusTitleComponent />
       <ServusListComponent />
+      <ExportModalComponent />
     </div>
   );
 }
