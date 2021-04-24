@@ -5,6 +5,11 @@ export const dataSlice = createSlice({
   initialState: {
     wares: [],
     servusi: [],
+    currentServus: "",
+    dialogs: {
+      servusi: false,
+      save: false,
+    },
   },
   reducers: {
     updateWares: (state, action) => {
@@ -32,9 +37,61 @@ export const dataSlice = createSlice({
         state.wares = [...state.wares, action.payload];
       }
     },
+    toggleDialog: (state, action) => {
+      state.dialogs = {
+        ...state.dialogs,
+        [action.payload]: !state.dialogs[action.payload],
+      };
+    },
+    addServus: (state) => {
+      const id = Math.random().toString(36).substr(2, 9);
+      state.servusi = [
+        ...state.servusi,
+        {
+          id,
+          name: "",
+          imgSrc: "",
+          tempImgSrc: "",
+        },
+      ];
+      state.currentServus = id;
+    },
+    updateServus: (state, action) => {
+      const servusi = state.servusi;
+      const servusIndex = state.servusi.findIndex(
+        (servus) => servus.id === action.payload.id
+      );
+      servusi[servusIndex] = action.payload;
+      state.servusi = [...servusi];
+    },
+    saveTempLink: (state, action) => {
+      const servusi = state.servusi;
+      const servusIndex = state.servusi.findIndex(
+        (servus) => servus.id === action.payload
+      );
+      let servus = servusi[servusIndex];
+      servus = {
+        ...servus,
+        imgSrc: servus.tempImgSrc,
+      };
+      servusi[servusIndex] = servus;
+      state.servusi = [...servusi];
+    },
+    loadSave: (state, action) => {
+      state = { ...state, ...action.payload };
+      return state;
+    },
   },
 });
 
-export const { updateWares, updateMultWare } = dataSlice.actions;
+export const {
+  updateWares,
+  updateMultWare,
+  toggleDialog,
+  addServus,
+  updateServus,
+  saveTempLink,
+  loadSave,
+} = dataSlice.actions;
 
 export default dataSlice.reducer;
