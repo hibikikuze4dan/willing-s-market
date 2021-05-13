@@ -47,7 +47,7 @@ const NameAndSubmitSaveComponent = ({ onClose }) => {
 const SelectSaveAndLoadComponent = ({ onClose }) => {
   const dispatch = useDispatch();
   const classes = useStyles();
-  const saves = JSON.parse(localStorage.getItem("saves"));
+  const saves = JSON.parse(localStorage.getItem("saves")) || [];
   const [selectedSave, updateSelectedSave] = useState("");
   const handleClick = () => {
     dispatch(
