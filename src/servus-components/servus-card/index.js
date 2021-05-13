@@ -7,9 +7,9 @@ const ServusCardComponent = ({ servus }) => {
   const { imgSrc, name } = servus;
   const servusName = name ? name : "Name not provided";
   return (
-    <Grid container>
-      <Card style={{ maxWidth: "100%" }}>
-        <Grid container>
+    <Grid container justify="center">
+      <Card style={{ maxWidth: "100%", border: "1px solid black" }}>
+        <Grid container spacing={3}>
           <Grid item xs={12}>
             <EditAndDeleteButtonsComponent servus={servus} />
           </Grid>

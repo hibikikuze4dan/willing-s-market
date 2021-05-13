@@ -8,7 +8,7 @@ import ModalComponent from "../modal";
 const ServusTitleComponent = () => {
   const dispatch = useDispatch();
   return (
-    <Grid container>
+    <Grid container spacing={4} style={{ paddingTop: "32px" }}>
       <Grid item xs={12}>
         Your Servusi
       </Grid>

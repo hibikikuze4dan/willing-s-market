@@ -14,7 +14,7 @@ const ServusListComponent = ({ width }) => {
     xl: 2,
   };
   return (
-    <Grid container>
+    <Grid container style={{ paddingBottom: "64px" }}>
       <GridList
         cellHeight="auto"
         cols={breakpoints[width]}

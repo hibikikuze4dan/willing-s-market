@@ -21,7 +21,7 @@ const CardListComponent = ({ width }) => {
     picked: selectedWaresTitles.includes(choice.title),
   }));
   return (
-    <Grid container>
+    <Grid container style={{ paddingTop: "96px" }}>
       <GridList cellHeight="auto" cols={breakpoints[width]} spacing={16}>
         {cardList.map((choice) => {
           return (

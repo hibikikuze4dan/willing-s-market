@@ -8,7 +8,10 @@ import ExportModalComponent from "./export-components/modal";
 
 function App() {
   return (
-    <div className="App">
+    <div
+      className="App"
+      style={{ overflowX: "hidden", overflowY: "hidden", padding: "0 16px" }}
+    >
       <ApplicationBarComponent />
       <CardListComponent />
       <ServusTitleComponent />

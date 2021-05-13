@@ -1,4 +1,5 @@
 import {
+  Grid,
   List,
   ListItem,
   ListItemText,
@@ -8,26 +9,33 @@ import {
 import React from "react";
 
 const ListComponent = ({ title, items }) => {
+  console.log(title, items);
   return (
-    <List subheader={title}>
-      {items.map((item) => {
-        const Comp = item?.imgSrc ? "li" : "ul";
-        const subheader = (
-          <Comp>
-            <a href={item?.imgSrc}>{item.title}</a>
-          </Comp>
-        );
-        return (
-          <List subheader={subheader} key={`item-${item.title}`}>
-            {item?.cost !== undefined && (
-              <ListItem component="ul">
-                <ListItemText primary={item.cost} />
-              </ListItem>
-            )}
-          </List>
-        );
-      })}
-    </List>
+    <Grid container>
+      <Grid item xs={12}>
+        <Typography variant="h5">{`${title}:`}</Typography>
+      </Grid>
+      <Grid item xs={12}>
+        <Typography>
+          {items.map((item, index) => {
+            const purchases = item?.purchases || 0;
+            const imgSrc = item?.imgSrc ? item.imgSrc : null;
+            const Component = imgSrc ? "a" : "span";
+            return (
+              <Component
+                href={imgSrc}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {item.title}
+                {purchases > 1 ? ` x${purchases}` : ""}
+                {index === items.length - 1 ? "" : ", "}
+              </Component>
+            );
+          })}
+        </Typography>
+      </Grid>
+    </Grid>
   );
 };
 
