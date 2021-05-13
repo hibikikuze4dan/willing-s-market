@@ -1,21 +1,21 @@
 {
   "files": {
     "main.css": "/willing-s-market/static/css/main.8c8b27cf.chunk.css",
-    "main.js": "/willing-s-market/static/js/main.40aef09d.chunk.js",
-    "main.js.map": "/willing-s-market/static/js/main.40aef09d.chunk.js.map",
+    "main.js": "/willing-s-market/static/js/main.f7927b48.chunk.js",
+    "main.js.map": "/willing-s-market/static/js/main.f7927b48.chunk.js.map",
     "runtime-main.js": "/willing-s-market/static/js/runtime-main.5697a00c.js",
     "runtime-main.js.map": "/willing-s-market/static/js/runtime-main.5697a00c.js.map",
-    "static/js/2.c57206cf.chunk.js": "/willing-s-market/static/js/2.c57206cf.chunk.js",
-    "static/js/2.c57206cf.chunk.js.map": "/willing-s-market/static/js/2.c57206cf.chunk.js.map",
+    "static/js/2.1fcf8922.chunk.js": "/willing-s-market/static/js/2.1fcf8922.chunk.js",
+    "static/js/2.1fcf8922.chunk.js.map": "/willing-s-market/static/js/2.1fcf8922.chunk.js.map",
     "index.html": "/willing-s-market/index.html",
     "static/css/main.8c8b27cf.chunk.css.map": "/willing-s-market/static/css/main.8c8b27cf.chunk.css.map",
-    "static/js/2.c57206cf.chunk.js.LICENSE.txt": "/willing-s-market/static/js/2.c57206cf.chunk.js.LICENSE.txt",
+    "static/js/2.1fcf8922.chunk.js.LICENSE.txt": "/willing-s-market/static/js/2.1fcf8922.chunk.js.LICENSE.txt",
     "static/media/logo.6ce24c58.svg": "/willing-s-market/static/media/logo.6ce24c58.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.5697a00c.js",
-    "static/js/2.c57206cf.chunk.js",
+    "static/js/2.1fcf8922.chunk.js",
     "static/css/main.8c8b27cf.chunk.css",
-    "static/js/main.40aef09d.chunk.js"
+    "static/js/main.f7927b48.chunk.js"
   ]
 }
