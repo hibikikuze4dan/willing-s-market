@@ -52,7 +52,9 @@ const MultiCardComponent = ({ choice }) => {
             <AlterMultChoiceComponent choice={choice} />
           </Grid>
           <Grid item xs={12}>
-            <Interweave content={description} />
+            <Typography>
+              <Interweave content={description} />
+            </Typography>
           </Grid>
         </Grid>
       </Card>
