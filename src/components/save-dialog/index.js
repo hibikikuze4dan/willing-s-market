@@ -17,10 +17,14 @@ import { handleLocalSaveClick } from "./utils";
 const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
-    minWidth: 120,
+    minWidth: 180,
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
+  },
+  dialog: {
+    overflowY: "hidden",
+    padding: "24px",
   },
 }));
 
@@ -83,9 +87,10 @@ const SelectSaveAndLoadComponent = ({ onClose }) => {
 const SaveDialogComponent = ({ onClose }) => {
   const isOpen = useSelector(getDialogsByFunction)("save");
   const dispatch = useDispatch();
+  const classes = useStyles();
   return (
-    <Dialog open={isOpen} onClose={onClose}>
-      <Grid container>
+    <Dialog open={isOpen} onClose={onClose} classes={{ paper: classes.dialog }}>
+      <Grid container spacing={2}>
         <Grid item xs={12}>
           <NameAndSubmitSaveComponent onClose={onClose} />
         </Grid>
@@ -93,14 +98,16 @@ const SaveDialogComponent = ({ onClose }) => {
           <SelectSaveAndLoadComponent onClose={onClose} />
         </Grid>
         <Grid item xs={12}>
-          <Button
-            onClick={() => {
-              dispatch(toggleDialog("save"));
-              dispatch(toggleDialog("export"));
-            }}
-          >
-            Export
-          </Button>
+          <Grid container justify="center">
+            <Button
+              onClick={() => {
+                dispatch(toggleDialog("save"));
+                dispatch(toggleDialog("export"));
+              }}
+            >
+              View Build As Text
+            </Button>
+          </Grid>
         </Grid>
       </Grid>
     </Dialog>

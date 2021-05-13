@@ -16,7 +16,7 @@ const ExportModalComponent = () => {
   const servusi = useSelector(getServusiForExport);
   return (
     <Dialog open={isOpen} onClose={() => dispatch(toggleDialog("export"))}>
-      <Grid container>
+      <Grid container style={{ padding: "32px" }} spacing={4}>
         <Grid item xs={12}>
           <ListComponent title="Wares" items={wares} />
         </Grid>
