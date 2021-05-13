@@ -19,7 +19,7 @@ const ServusListComponent = ({ width }) => {
         cellHeight="auto"
         cols={breakpoints[width]}
         spacing={16}
-        style={{ width: "100%" }}
+        style={{ width: "100%", margin: 0 }}
       >
         {servusi.map((servus) => {
           return (

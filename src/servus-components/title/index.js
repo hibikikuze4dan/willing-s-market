@@ -1,4 +1,4 @@
-import { Button, Grid } from "@material-ui/core";
+import { Button, Grid, Typography } from "@material-ui/core";
 import React from "react";
 import { Add } from "@material-ui/icons";
 import { useDispatch } from "react-redux";
@@ -10,7 +10,7 @@ const ServusTitleComponent = () => {
   return (
     <Grid container spacing={4} style={{ paddingTop: "32px" }}>
       <Grid item xs={12}>
-        Your Servusi
+        <Typography variant="h4">Your Servusi</Typography>
       </Grid>
       <Grid item xs={12}>
         <Button

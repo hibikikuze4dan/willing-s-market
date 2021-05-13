@@ -21,9 +21,9 @@ const ApplicationBarComponent = ({ width }) => {
     <AppBar position="fixed" style={{ padding: "8px 8px" }}>
       <Grid container justify="space-between">
         <Button startIcon={<Save />} onClick={toggleSaveDialog}>
-          Save/Load
+          {greaterThanSmall ? "Save/Load" : ""}
         </Button>
-        <Typography style={{ alignSelf: "center", paddingRight: "48px" }}>{`${
+        <Typography style={{ alignSelf: "center", paddingRight: "32px" }}>{`${
           greaterThanSmall ? "Servusi" : "S"
         }: ${numOfServusi}`}</Typography>
         <Typography style={{ alignSelf: "center" }}>{`${

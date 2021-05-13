@@ -3,14 +3,19 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { updateWares } from "../../redux/slice";
 
-const SingleCardComponent = ({ choice }) => {
+const SingleCardComponent = ({ choice, backgroundColor }) => {
   const { title, description, cost } = choice;
   const dispatch = useDispatch();
   return (
     <Card
       component={Button}
       onClick={() => dispatch(updateWares(choice))}
-      style={{ backgroundColor: "inherit", padding: "16px" }}
+      style={{
+        backgroundColor,
+        padding: "16px",
+        height: "100%",
+        alignItems: "end",
+      }}
     >
       <Grid container spacing={2}>
         <Grid item xs={12}>

@@ -25,7 +25,10 @@ const CardListComponent = ({ width }) => {
       <GridList cellHeight="auto" cols={breakpoints[width]} spacing={16}>
         {cardList.map((choice) => {
           return (
-            <GridListTile key={`grid-list-tile-${choice.title}`}>
+            <GridListTile
+              style={{ border: "1px solid black" }}
+              key={`grid-list-tile-${choice.title}`}
+            >
               <CardComponent choice={choice} />
             </GridListTile>
           );

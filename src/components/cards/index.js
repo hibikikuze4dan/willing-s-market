@@ -6,11 +6,7 @@ const CardComponent = ({ choice }) => {
   const { multi, picked } = choice;
   const CardType = multi ? MultiCardComponent : SingleCardComponent;
   const backgroundColor = picked ? "green" : "inherit";
-  return (
-    <span style={{ backgroundColor }}>
-      <CardType choice={choice} />
-    </span>
-  );
+  return <CardType backgroundColor={backgroundColor} choice={choice} />;
 };
 
 export default CardComponent;

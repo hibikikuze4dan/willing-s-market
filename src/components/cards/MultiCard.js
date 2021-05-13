@@ -32,14 +32,22 @@ const AlterMultChoiceComponent = ({ choice }) => {
   );
 };
 
-const MultiCardComponent = ({ choice }) => {
+const MultiCardComponent = ({ choice, backgroundColor }) => {
   const { title, description, cost } = choice;
   return (
-    <Grid container style={{ backgroundColor: "inherit" }}>
-      <Card style={{ backgroundColor: "inherit", padding: "16px" }}>
+    <Grid
+      container
+      style={{
+        backgroundColor,
+        height: "100%",
+      }}
+    >
+      <Card
+        style={{ backgroundColor: "inherit", padding: "16px", height: "100%" }}
+      >
         <Grid container spacing={2}>
           <Grid item xs={12}>
-            <Typography style={{ textTransform: "uppercase" }}>
+            <Typography variant="h5" style={{ textTransform: "uppercase" }}>
               {title}
             </Typography>
           </Grid>
