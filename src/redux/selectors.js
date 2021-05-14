@@ -3,6 +3,8 @@ import { createSelector } from "reselect";
 
 export const getShowStory = (state) => state.showStory;
 
+export const getSaveTitle = (state) => state.saveTitle;
+
 export const getWares = (state) => {
   return state?.wares || [];
 };

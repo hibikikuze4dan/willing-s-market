@@ -6,6 +6,7 @@ export const dataSlice = createSlice({
     wares: [],
     servusi: [],
     currentServus: "",
+    saveTitle: "",
     dialogs: {
       servusi: false,
       save: false,
@@ -95,6 +96,9 @@ export const dataSlice = createSlice({
     toggleShowStory: (state) => {
       state.showStory = !state.showStory;
     },
+    updateSaveTitle: (state, action) => {
+      state.saveTitle = action.payload;
+    },
   },
 });
 
@@ -109,6 +113,7 @@ export const {
   updateCurrentServus,
   deleteServus,
   toggleShowStory,
+  updateSaveTitle,
 } = dataSlice.actions;
 
 export default dataSlice.reducer;

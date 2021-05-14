@@ -10,8 +10,12 @@ import {
 } from "@material-ui/core";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getDataForSaving, getDialogsByFunction } from "../../redux/selectors";
-import { loadSave, toggleDialog } from "../../redux/slice";
+import {
+  getDataForSaving,
+  getDialogsByFunction,
+  getSaveTitle,
+} from "../../redux/selectors";
+import { loadSave, toggleDialog, updateSaveTitle } from "../../redux/slice";
 import { handleLocalSaveClick } from "./utils";
 
 const useStyles = makeStyles((theme) => ({
@@ -29,10 +33,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const NameAndSubmitSaveComponent = ({ onClose }) => {
-  const [saveName, updateSaveName] = useState("");
+  const dispatch = useDispatch();
+  const saveTitle = useSelector(getSaveTitle);
+  const [saveName, updateSaveName] = useState(saveTitle);
   const dataToSave = useSelector(getDataForSaving);
   const handleClick = () => {
     handleLocalSaveClick(saveName, dataToSave);
+    dispatch(updateSaveTitle(saveName));
     onClose();
   };
   return (
@@ -57,6 +64,7 @@ const SelectSaveAndLoadComponent = ({ onClose }) => {
     dispatch(
       loadSave(saves.find((save) => save.saveName === selectedSave).saveData)
     );
+    dispatch(updateSaveTitle(selectedSave));
     onClose();
   };
   return (
