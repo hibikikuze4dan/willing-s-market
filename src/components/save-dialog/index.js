@@ -45,12 +45,15 @@ const NameAndSubmitSaveComponent = ({ onClose }) => {
   return (
     <Grid container justify="space-around">
       <TextField
+        style={{ margin: "8px" }}
         label="Save Name"
         value={saveName}
         onChange={(e) => updateSaveName(e.target.value)}
         onKeyUp={(e) => (e.key === "Enter" ? handleClick() : null)}
       />
-      <Button onClick={handleClick}>Save</Button>
+      <Button variant="outlined" onClick={handleClick}>
+        Save
+      </Button>
     </Grid>
   );
 };
@@ -87,7 +90,9 @@ const SelectSaveAndLoadComponent = ({ onClose }) => {
           })}
         </Select>
       </FormControl>
-      <Button onClick={handleClick}>Load</Button>
+      <Button variant="outlined" onClick={handleClick}>
+        Load
+      </Button>
     </Grid>
   );
 };
@@ -98,7 +103,7 @@ const SaveDialogComponent = ({ onClose }) => {
   const classes = useStyles();
   return (
     <Dialog open={isOpen} onClose={onClose} classes={{ paper: classes.dialog }}>
-      <Grid container spacing={2}>
+      <Grid container spacing={4}>
         <Grid item xs={12}>
           <NameAndSubmitSaveComponent onClose={onClose} />
         </Grid>
@@ -108,6 +113,7 @@ const SaveDialogComponent = ({ onClose }) => {
         <Grid item xs={12}>
           <Grid container justify="center">
             <Button
+              variant="outlined"
               onClick={() => {
                 dispatch(toggleDialog("save"));
                 dispatch(toggleDialog("export"));
