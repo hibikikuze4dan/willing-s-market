@@ -11,6 +11,7 @@ export const dataSlice = createSlice({
       save: false,
       export: false,
     },
+    showStory: false,
   },
   reducers: {
     updateWares: (state, action) => {
@@ -91,6 +92,9 @@ export const dataSlice = createSlice({
       state = { ...state, ...action.payload };
       return state;
     },
+    toggleShowStory: (state) => {
+      state.showStory = !state.showStory;
+    },
   },
 });
 
@@ -104,6 +108,7 @@ export const {
   loadSave,
   updateCurrentServus,
   deleteServus,
+  toggleShowStory,
 } = dataSlice.actions;
 
 export default dataSlice.reducer;

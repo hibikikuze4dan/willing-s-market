@@ -2,7 +2,7 @@ import { Grid, GridList, GridListTile, withWidth } from "@material-ui/core";
 import React from "react";
 import { useSelector } from "react-redux";
 import data from "../../data";
-import { getWares, getWaresTitlesArray } from "../../redux/selectors";
+import { getWaresTitlesArray } from "../../redux/selectors";
 import CardComponent from "../cards";
 
 const { wares } = data;
@@ -21,7 +21,7 @@ const CardListComponent = ({ width }) => {
     picked: selectedWaresTitles.includes(choice.title),
   }));
   return (
-    <Grid container style={{ paddingTop: "96px" }}>
+    <Grid container style={{ paddingTop: "16px" }}>
       <GridList cellHeight="auto" cols={breakpoints[width]} spacing={16}>
         {cardList.map((choice) => {
           return (

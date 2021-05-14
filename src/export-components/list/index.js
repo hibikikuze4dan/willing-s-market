@@ -1,15 +1,7 @@
-import {
-  Grid,
-  List,
-  ListItem,
-  ListItemText,
-  ListSubheader,
-  Typography,
-} from "@material-ui/core";
+import { Grid, Typography } from "@material-ui/core";
 import React from "react";
 
 const ListComponent = ({ title, items }) => {
-  console.log(title, items);
   return (
     <Grid container>
       <Grid item xs={12}>

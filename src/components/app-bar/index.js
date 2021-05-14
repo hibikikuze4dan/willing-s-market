@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   getAmountOfCoinsLeft,
   getAmountOfServusiLeft,
-  getServusi,
 } from "../../redux/selectors";
 import { toggleDialog } from "../../redux/slice";
 import SaveDialogComponent from "../save-dialog";

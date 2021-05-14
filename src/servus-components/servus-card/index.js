@@ -8,7 +8,13 @@ const ServusCardComponent = ({ servus }) => {
   const servusName = name ? name : "Name not provided";
   return (
     <Grid container justify="center">
-      <Card style={{ maxWidth: "100%", border: "1px solid black" }}>
+      <Card
+        style={{
+          maxWidth: "100%",
+          border: "1px solid black",
+          backgroundColor: "inherit",
+        }}
+      >
         <Grid container spacing={3}>
           <Grid item xs={12}>
             <EditAndDeleteButtonsComponent servus={servus} />

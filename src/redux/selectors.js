@@ -1,5 +1,7 @@
-import { get, omit, sum } from "lodash";
+import { get, sum } from "lodash";
 import { createSelector } from "reselect";
+
+export const getShowStory = (state) => state.showStory;
 
 export const getWares = (state) => {
   return state?.wares || [];

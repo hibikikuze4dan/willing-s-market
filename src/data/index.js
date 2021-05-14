@@ -1,5 +1,12 @@
+import opening from "./opening";
+import servusi from "./servusi";
+import your_harem from "./your_harem";
+import post_script from "./post_script";
+import the_next_day from "./the_next_day";
+
 const wares = {
   title: "Wares",
+  alwaysShowTitle: true,
   description: [
     "<i>One by one the Sparks flare up, pulsating with unleashed energy taking form.</i>",
     "Alright great! Now the process will take a while, roughly 20 minutes. Maybe you’d like to look around the other wares we have to offer? See, we are aware you likely lack the option to house your Harem so why not take some of our products to help yourself in various ways?",
@@ -80,6 +87,13 @@ const wares = {
   ],
 };
 
-export default {
+const exportObject = {
+  opening,
+  servusi,
+  your_harem,
   wares,
+  post_script,
+  the_next_day,
 };
+
+export default exportObject;

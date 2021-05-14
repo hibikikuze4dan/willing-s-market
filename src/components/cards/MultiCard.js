@@ -16,6 +16,7 @@ const AlterMultChoiceComponent = ({ choice }) => {
   return (
     <Grid container justify="space-between">
       <IconButton
+        title="Remove"
         onClick={() => dispatch(updateMultWare({ ...choice, increase: false }))}
       >
         <Remove />
@@ -24,6 +25,7 @@ const AlterMultChoiceComponent = ({ choice }) => {
         {purchases}
       </Typography>
       <IconButton
+        title="Add"
         onClick={() => dispatch(updateMultWare({ ...choice, increase: true }))}
       >
         <Add />
