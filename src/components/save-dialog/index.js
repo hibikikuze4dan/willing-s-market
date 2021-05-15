@@ -1,22 +1,11 @@
-import {
-  Button,
-  Dialog,
-  FormControl,
-  Grid,
-  InputLabel,
-  makeStyles,
-  Select,
-  TextField,
-} from "@material-ui/core";
-import React, { useState } from "react";
+import { Button, Dialog, Grid, makeStyles } from "@material-ui/core";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  getDataForSaving,
-  getDialogsByFunction,
-  getSaveTitle,
-} from "../../redux/selectors";
-import { loadSave, toggleDialog, updateSaveTitle } from "../../redux/slice";
-import { handleLocalSaveClick } from "./utils";
+import { getDialogsByFunction } from "../../redux/selectors";
+import { toggleDialog } from "../../redux/slice";
+import DeleteSavesComponent from "./DeleteSaves";
+import NameAndSubmitSaveComponent from "./NameAndSubmitSave";
+import SelectSaveAndLoadComponent from "./SelectSaveAndLoad";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -32,71 +21,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const NameAndSubmitSaveComponent = ({ onClose }) => {
-  const dispatch = useDispatch();
-  const saveTitle = useSelector(getSaveTitle);
-  const [saveName, updateSaveName] = useState(saveTitle);
-  const dataToSave = useSelector(getDataForSaving);
-  const handleClick = () => {
-    handleLocalSaveClick(saveName, dataToSave);
-    dispatch(updateSaveTitle(saveName));
-    onClose();
-  };
-  return (
-    <Grid container justify="space-around">
-      <TextField
-        style={{ margin: "8px" }}
-        label="Save Name"
-        value={saveName}
-        onChange={(e) => updateSaveName(e.target.value)}
-        onKeyUp={(e) => (e.key === "Enter" ? handleClick() : null)}
-      />
-      <Button variant="outlined" onClick={handleClick}>
-        Save
-      </Button>
-    </Grid>
-  );
-};
-
-const SelectSaveAndLoadComponent = ({ onClose }) => {
-  const dispatch = useDispatch();
-  const classes = useStyles();
-  const saves = JSON.parse(localStorage.getItem("saves")) || [];
-  const [selectedSave, updateSelectedSave] = useState("");
-  const handleClick = () => {
-    dispatch(
-      loadSave(saves.find((save) => save.saveName === selectedSave).saveData)
-    );
-    dispatch(updateSaveTitle(selectedSave));
-    onClose();
-  };
-  return (
-    <Grid container justify="space-around">
-      <FormControl className={classes.formControl}>
-        <InputLabel htmlFor="save-to-load">Save to Load</InputLabel>
-        <Select
-          native
-          value={selectedSave}
-          onChange={(e) => updateSelectedSave(e.target.value)}
-          inputProps={{ name: "load", id: "save-to-load" }}
-        >
-          <option aria-label="None" value="" />
-          {saves.map((save) => {
-            return (
-              <option value={save.saveName} key={save.saveName}>
-                {save.saveName}
-              </option>
-            );
-          })}
-        </Select>
-      </FormControl>
-      <Button variant="outlined" onClick={handleClick}>
-        Load
-      </Button>
-    </Grid>
-  );
-};
-
 const SaveDialogComponent = ({ onClose }) => {
   const isOpen = useSelector(getDialogsByFunction)("save");
   const dispatch = useDispatch();
@@ -109,6 +33,9 @@ const SaveDialogComponent = ({ onClose }) => {
         </Grid>
         <Grid item xs={12}>
           <SelectSaveAndLoadComponent onClose={onClose} />
+        </Grid>
+        <Grid item xs={12}>
+          <DeleteSavesComponent onClose={onClose} />
         </Grid>
         <Grid item xs={12}>
           <Grid container justify="center">
